@@ -31,7 +31,11 @@ counter_interval = 1000   #1000 represents 1 second
 timer_up = False
 play = True
 
-wn.bgcolor('orange')
+
+
+#-----Lists--------
+
+colors = ['green', 'blue', 'orange', 'red', 'yellow']
 
 #-----game functions--------
 def start_game():
@@ -60,12 +64,13 @@ def move(x, y):
     score += 1
     w_score = 'Score: ' + str(score)
     s.write(w_score, font=font_setup)
-    change_size()
+    randomize()
 
 
-def change_size():
+def randomize():
   size = rnd.randint(1, 3)
   t.turtlesize(size)
+  wn.bgcolor(rnd.choice(colors))
     
 def countdown():
   global timer, timer_up
